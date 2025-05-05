@@ -1,5 +1,6 @@
 #include <Keypad.h>   //The library to use the keypad
 
+//const is a keyword that is specific to a variable and is constant
 const byte ROWS = 4; //The four rows
 const byte COLS = 4; //The four columns
 
@@ -14,8 +15,8 @@ char hexakeys [ROWS][COLS] = {
 byte rowPins[ROWS] = {9, 8, 7, 6};  //Connecting to row pinouts of keypad
 byte colPins[COLS] = {5, 4, 3, 2};  //connecting the column pinouts of  keypad
 
-//Initialize an instance of class NewKeypad
-Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, [ROWS], [COLS]);
+//Initialize NewKeypad
+Keypad customKeypad = Keypad(makeKeymap(hexakeys), rowPins, colPins, ROWS, COLS);
 
 void setup() {
   Serial.begin(9600);
