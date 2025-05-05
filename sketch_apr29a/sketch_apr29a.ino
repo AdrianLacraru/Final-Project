@@ -12,13 +12,23 @@ char hexakeys [ROWS][COLS] = {
   {'*','0','#','D'}
 };
 
-byte rowPins[ROWS] = {9, 8, 7, 6};  //Connecting to row pinouts of keypad
+byte rowPins[ROWS] = {A0, A1, A2, A3};  //Connecting to row pinouts of keypad
 byte colPins[COLS] = {5, 4, 3, 2};  //connecting the column pinouts of  keypad
 
 //Initialize NewKeypad
 Keypad customKeypad = Keypad(makeKeymap(hexakeys), rowPins, colPins, ROWS, COLS);
 
+
+const int Password_Length = 4; //length of our password
+
+String PASSKEY;//holds value
+
+String Master = "1234";//Password
+
+
+
 void setup() {
+  
   Serial.begin(9600);
 }
 
@@ -26,8 +36,23 @@ void loop() {
   //Get Key value when pressed
   char customkey = customKeypad.getKey();
 
-  if (customkey) {
-    Serial.println(customkey);
-    
-  }
+ 
+  
+
+
+
+
+// 3 - print if it is ok or not
+
+ if(Master = "1234"){
+  Serial.println("Correct, you may enter");
+ }
+ else {
+  Serial.println("Incorrect");
+ }
+
+
+  
+
+
 }
