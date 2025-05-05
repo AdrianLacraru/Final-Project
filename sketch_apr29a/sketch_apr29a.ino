@@ -24,10 +24,10 @@ void setup() {
 
 void loop() {
   //Get Key value when pressed
-  char customkey = customKeypad.getkey();
+  char customkey = customKeypad.getKey();
 
   if (customkey) {
     Serial.println(customkey);
-    Serial.println("Correct, Welcome");
+    
   }
 }
