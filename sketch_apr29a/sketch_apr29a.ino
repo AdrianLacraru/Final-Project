@@ -12,22 +12,28 @@ char hexakeys [ROWS][COLS] = {
   {'*','0','#','D'}
 };
 
-byte rowPins[ROWS] = {9, 8, 7, 6};  //Connecting to row pinouts of keypad
+byte rowPins[ROWS] = {A0, A1, A2, A3};  //Connecting to row pinouts of keypad
 byte colPins[COLS] = {5, 4, 3, 2};  //connecting the column pinouts of  keypad
 
 //Initialize NewKeypad
 Keypad customKeypad = Keypad(makeKeymap(hexakeys), rowPins, colPins, ROWS, COLS);
 
 void setup() {
+  
   Serial.begin(9600);
 }
 
 void loop() {
   //Get Key value when pressed
   char customkey = customKeypad.getKey();
+  
 
   if (customkey) {
-    Serial.println(customkey);
+    Serial.print(customkey);
     
+   
   }
+  
+
+
 }
