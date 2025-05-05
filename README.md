@@ -1,7 +1,7 @@
 # Final-Project
 Password final project
 
-##Connect the LCD module:
+## Connect the LCD module:
 •	RS to Digital Pin 7
 •	EN to Digital Pin 8
 •	D4 to Digital Pin 9
@@ -18,4 +18,5 @@ Password final project
 •	“S” side to Digital Pin 3
 •	“-” side to GND
 •	Middle pin to 5V
-![image](https://github.com/user-attachments/assets/e7121aa0-6b9c-406b-b9c5-7bff2cf647f0)
+![{DB8320E8-4D86-4C1E-BA22-0B2E26C07911}](https://github.com/user-attachments/assets/a18a7858-9028-4775-84a2-ccef4353e12b)
+
