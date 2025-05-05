@@ -18,6 +18,42 @@ byte colPins[COLS] = {5, 4, 3, 2};  //connecting the column pinouts of  keypad
 //Initialize NewKeypad
 Keypad customKeypad = Keypad(makeKeymap(hexakeys), rowPins, colPins, ROWS, COLS);
 
+
+const int Password_Length = 4; //length of our password
+
+String Master = "1234";//Password
+
+
+
+
+
+
+
+
+
+
+
+
+// 1 - get the 4 psd numbers
+char customKey1 = '1';
+char customKey2 = '2';
+char customKey3 = '3';
+char customKey4 = '4';
+
+if (customkey1 = '1'){
+  
+} 
+if (customkey == customkey1){
+  
+} 
+if (customkey == customkey1){
+  
+} 
+if (customkey == customkey1){
+  
+} 
+  psd_ok = 1;
+
 void setup() {
   
   Serial.begin(9600);
@@ -26,13 +62,18 @@ void setup() {
 void loop() {
   //Get Key value when pressed
   char customkey = customKeypad.getKey();
-  
 
-  if (customkey) {
-    Serial.print(customkey);
-    
-   
-  }
+// 3 - print if it is ok or not
+
+ if(psd_ok == 1){
+  Print.lcd("Correct, you may enter");
+ }
+ else{
+  Print.lcd("Incorrect, try again");
+ }
+
+
+
   
 
 
