@@ -1,7 +1,7 @@
 # Final-Project
 Password final project
 
-##Connect the LCD module:
+## Connect the LCD module:
 •	RS to Digital Pin 7
 •	EN to Digital Pin 8
 •	D4 to Digital Pin 9
@@ -14,8 +14,12 @@ Password final project
 •	RW to GND
 •	A (Backlight +) to 5V
 •	K (Backlight -) to GND
+
+# Analog-ins-Keypad
 2.	Connect the RGB LED (Common Cathode):
 •	“S” side to Digital Pin 3
 •	“-” side to GND
 •	Middle pin to 5V
-![image](https://github.com/user-attachments/assets/b55668a1-fd78-4e28-b787-7fc51363be80)
+=======
+
+![image](https://github.com/user-attachments/assets/5892e8fb-8776-4693-91d6-b40ca27c0b07)
