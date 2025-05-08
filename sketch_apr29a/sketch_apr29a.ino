@@ -1,64 +1,78 @@
-#include <Keypad.h>  //The library to use the keypad
+#include <Keypad.h>
 
-//const is a keyword that is specific to a variable and is constant
-const byte ROWS = 4;  //The four rows
-const byte COLS = 4;  //The four columns
+// Keypad setup
+const byte ROWS = 4;
+const byte COLS = 4;
 
-//defining the symbols of the botton keypads
-char hexakeys[ROWS][COLS] = {
-  { '1', '2', '3', 'A' },
-  { '4', '5', '6', 'B' },
-  { '7', '8', '9', 'C' },
-  { '*', '0', '#', 'D' }
+char keys[ROWS][COLS] = {
+  {'1','2','3','A'},
+  {'4','5','6','B'},
+  {'7','8','9','C'},
+  {'*','0','#','D'}
 };
 
-byte rowPins[ROWS] = { A0, A1, A2, A3 };  //Connecting to row pinouts of keypad
-byte colPins[COLS] = { 5, 4, 3, 2 };      //connecting the column pinouts of  keypad
+byte rowPins[ROWS] = {A0, A1, A2, A3};
+byte colPins[COLS] = {5, 4, 3, 2};
 
-//Initialize NewKeypad
-Keypad customKeypad = Keypad(makeKeymap(hexakeys), rowPins, colPins, ROWS, COLS);
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
-
-const String correctCode = "1234";  //The 4 digit code that will grant access
-String inputCode = "";
-
+// Code logic
+String secretCode = "2580";
+String enteredCode = "";
+int attempts = 10;           // counts failed attempts
+const int maxAttempts = 10; // max allowed before "lockout"
+bool locked = false;        // flag to disable further checks
 
 void setup() {
-  Serial.begin(9600);  //Setting up the serial monitor for troubleshooting/debugging
+  Serial.begin(9600);
+  Serial.println("Enter 4-digit code, then press #:");
 }
 
 void loop() {
-  //Get Key value when pressed
-  char key = customKeypad.getKey();
+  if (locked) {
+    // Do nothing if user has failed 10 times
+    return;
+  }
 
+  char key = keypad.getKey();
 
-  if (key != NO_KEY) {
-    Serial.print("Key Pressed: "); //Command to the user
+  if (key) {
+    Serial.print("Pressed: ");
     Serial.println(key);
   }
-
-  if (key == '#') {  // '#' = submit
-
-    if (inputCode == correctCode) {
-      Serial.println("Access Granted!"); //when code is right
-    } 
-
-    else {
-      Serial.println("Access Denied!"); //When code is wrong
+    if (key == '*') {
+      enteredCode = "";
+      Serial.println("Code cleared. Try again:");
     }
-    inputCode = "";         // reset input
-   
-  }
-    else if (key == '*') {  // '*' = clear
-      inputCode = "";
-      Serial.println("Input Cleared.");
-    } 
+     
+    else if (key == '#') {
+       if (enteredCode == secretCode) {
+         Serial.println("Access Granted!");
+         attempts = 0; // reset attempts if correct
+       }  
+         
+       else {
+         attempts++;
+         Serial.println("Access Denied!");
+         Serial.print("Attempts: ");
+         Serial.println(attempts);
+       }
 
-  else if (isDigit(key)) {
-  }  
-
-    if (inputCode.length() < 4) { //if a number between 0-9 are pressed and input is less than 4 charactors it will be outputed
-      inputCode += key;
+       if (attempts >= maxAttempts) {
+         Serial.println("User Error, Data Deleting in progress........");
+         locked = true;
+       }
+        enteredCode = ""; // clear for next try
     }
-  
+
+    else if (isDigit(key)) {
+      if (enteredCode.length() < 4) {
+        enteredCode += key;
+      } 
+      
+      else {
+        Serial.println("Already entered 4 digits. Press # or *.");
+      }
+    }
 }
+
