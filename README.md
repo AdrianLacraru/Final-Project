@@ -18,4 +18,4 @@ Password final project
 •	“S” side to Digital Pin 3
 •	“-” side to GND
 •	Middle pin to 5V
-![image](https://github.com/user-attachments/assets/e7121aa0-6b9c-406b-b9c5-7bff2cf647f0)
+![image](https://github.com/user-attachments/assets/b55668a1-fd78-4e28-b787-7fc51363be80)
