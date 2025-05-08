@@ -15,5 +15,6 @@ Password final project
 •	A (Backlight +) to 5V
 •	K (Backlight -) to GND
 
-![{001D1B11-4600-41AF-A798-5B7FB9801DF4}](https://github.com/user-attachments/assets/dbecdd7f-882e-4965-ac3f-ffccfaa59e7b)
+![image](https://github.com/user-attachments/assets/5892e8fb-8776-4693-91d6-b40ca27c0b07)
+
 
