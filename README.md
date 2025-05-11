@@ -1,7 +1,21 @@
 # Final-Project
-Password final project
+Objectif: I want to type a PIN into a keypad, and I will be informed on if the PIN typed in is correct or not, and after a certain amount of failed attempts, the system will lock down for a period of time.
 
-## Connect the LCD module:
+
+## Components:
+Arduino Uno
+
+Keypad (Membrane Switch)
+
+LCD display (LCD 1602 Module)
+
+## Basic Assembly Diagram
+
+![image](https://github.com/user-attachments/assets/02fbb1ba-434a-4bf1-bad0-2385b1f60566)
+
+
+
+### Connect the LCD module:
 •	RS to Digital Pin 7
 
 •	EN to Digital Pin 8
@@ -26,8 +40,11 @@ Password final project
 
 •	K (Backlight -) to GND
 
-# Analog-ins-Keypad
 
+### Analog-ins-Keypad
 
+ROWS to A0, A1, A2, A3
+
+COLS to D5, D4, D3, D2
 
 ![image](https://github.com/user-attachments/assets/528eccf3-1be1-4738-8b87-899a2bf92ea0)
