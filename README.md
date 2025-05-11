@@ -22,4 +22,4 @@ Password final project
 •	Middle pin to 5V
 =======
 
-![image](https://github.com/user-attachments/assets/5892e8fb-8776-4693-91d6-b40ca27c0b07)
+![image](https://github.com/user-attachments/assets/528eccf3-1be1-4738-8b87-899a2bf92ea0)
